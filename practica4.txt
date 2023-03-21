@@ -1,0 +1,25 @@
+1ER PASO
+Switch>ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname PISO1
+PISO1(config)#vlan 10
+PISO1(config-vlan)#name clientes
+PISO1(config-vlan)#exit
+PISO1(config)#vlan 20
+PISO1(config-vlan)#name medicos
+PISO1(config-vlan)#exit
+PISO1(config)#vlan 30
+PISO1(config-vlan)#name pagos
+PISO1(config-vlan)#exit 
+PISO1(config)#^Z
+ 
+2DO PASO
+PISO1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+PISO1(config)#inter range fa0/1,fa0/3,fa0/5
+PISO1(config-if-range)#switchport access vlan 10
+PISO1(config-if-range)#exit
+PISO1(config)#inter range fa0/2,fa0/4,fa0/6
+PISO1(config-if-range)#switchport access vlan 20
+PISO1(config-if-range)#exit
